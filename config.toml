@@ -1,0 +1,22 @@
+# The URL the site will be built for
+base_url = "https://electromat.net"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+# Theme
+theme = "terminimal"
+
+[extra]
+# Put all your custom variables here
+
+logo_text = "Electromat"
+author = "Tom Burdick"
+copyright_html = "Tom Burdick&nbsp;<b>Copyright 2019</b>"
