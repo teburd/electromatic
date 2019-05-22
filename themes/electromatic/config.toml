@@ -1,0 +1,42 @@
+# The URL the site will be built for
+base_url = "https://example.com"
+
+title = "dinkleberg"
+compile_sass = true
+highlight_code = true
+build_search_index = false
+
+taxonomies = [
+ {name = "categories"},
+ {name = "tags"},
+]
+
+
+[extra]
+blog_title="Dinkleberg"
+label_tags = "Tags"
+label_tag = "Tag"
+label_categories = "Categories"
+label_category = "Category"
+label_relative_posts = "Relative Posts"
+label_next = "Next"
+label_previous = "Previous"
+label_page = "Page"
+label_of = "of"
+
+og_image="https://user-images.githubusercontent.com/10289071/40806112-dd79ae78-64f6-11e8-8f24-63f387d5bb8f.jpg" # Image that will appear on social media
+og_alt_image="Gotcha dinkleberg" # Alt for og_image
+og_site_name="Dinkleberg Theme" # Site Name for Open Graphic
+keywords="dinkleberg, theme, gutenberg, rust" # Keywords for SEO
+
+educational_use="knowledge share" # OPTIONAL
+copyright_year="2018" # OPTIONAL
+
+
+sidebar = [
+    {name = "Social", urls=[
+        {name="Twitter", url=""},
+        {name="Facebook", url=""},
+        {name="Outro", url=""},
+    ]}
+]
