@@ -71,7 +71,7 @@ while (1) {
 This API is convienent and straightforward.
 
 This API got me quite far with *most* what I was trying to do. In fact
-the product at [Baseball Tech](https://baseballtech.com) uses the
+the product at [Baseball Tech](http://baseballtech.com) uses the
 Zephyr sensors API in its interrupt driven form though I did have to
 do some tweaking.
 
