@@ -83,7 +83,7 @@ What I wanted to be able to do was...
 * Not work with already converted values, I wanted the values that the sensor
   gave directly in the native sensor format (usually 16 bit integers) primarily
   because of their compact size.
-* Change the state of the device at various times.
+* Change the state of the device at runtime safely.
 
 Do the above without necessarily tacking on a bunch of custom
 device specific functionality like I was doing.
