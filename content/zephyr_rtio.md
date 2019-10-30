@@ -118,7 +118,7 @@ and I wanted something working **now-ish**.
 Changing the state of the device left a lot of confusion about the ringbuffer.
 At what point in the ringbuffer for example was the device in state 1
 rather than say state 2, where state 1 had 2 8 bit values and state 2 
-has 4 16 bit signed values and a timestamp? It also left my wondering
+has 4 16 bit signed values and a timestamp? It also left me wondering
 how it would ever be possible to set even a simple attribute like
 sample rate when that sample rate is often times dependent on several
 other configuration options. Filter options, power mode options, fifo
