@@ -23,9 +23,6 @@
             </a>
         {% endif %}
         <h1 class="title" itemprop="headline">{{ page.title }}</h1>
-        <address itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span itemprop="name">{{page.extra.author}}</span>
-        </address>
         <div class="extra">
             {% if page.taxonomies.tags %}
                 {{config.extra.label_tags}}:

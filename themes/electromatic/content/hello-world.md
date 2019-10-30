@@ -8,7 +8,6 @@ categories = ["Data Type"]
 tags = ["atomic", "utils", "bla"]
 
 [extra]
-author = "Bruno Corrêa Zimmermann"
 relative_posts=[
     {label="Other about atomics", url="/relative_sample/other-hello-world"}
 ]
