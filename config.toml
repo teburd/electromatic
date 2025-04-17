@@ -1,8 +1,10 @@
+
 base_url = "https://electromatic.us"
 title = "Electromatic.us"
 compile_sass = true
 build_search_index = true
 theme = "electromatic"
+author = "Tom Burdick <tom.burdick@electromatic.us>"
 
 # Taxonomies
 taxonomies = [
@@ -12,9 +14,9 @@ taxonomies = [
 
 [markdown]
 highlight_code = true
+highlight_theme = "base16-ocean-dark"
 
 [extra]
-
 blog_title="Electromatic"
 label_tags = "Tags"
 label_tag = "Tag"
@@ -33,7 +35,7 @@ og_site_name="" # Site Name for Open Graphic
 keywords="electromatic, Tom Burdick, electronics, firmware, zephyr" # Keywords for SEO
 
 #educational_use="knowledge share" # OPTIONAL
-copyright_year="2019" # OPTIONAL
+copyright_year="2025" # OPTIONAL
 
 #fb_app_id="???" # OPTIONAL, Facebook App Id to help in metrics
 #twitter_username="@???" # OPTIONAL, Twitter User to help with metrics

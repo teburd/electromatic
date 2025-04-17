@@ -1,5 +1,5 @@
-name = "dinkleberg"
-description = "The Rust BR theme for Gutenberg"
+name = "electromatic"
+description = "A theme based on dinkleberg"
 license = "MIT"
 homepage = "https://github.com/rust-br/dinkleberg"
 min_version = "0.4.0"
