@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/Blog">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title> Rust for i.MX RT </title>
+
+    
+        <link rel="apple-touch-icon" sizes="57x57" href="https://electromatic.us/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://electromatic.us/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://electromatic.us/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://electromatic.us/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://electromatic.us/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://electromatic.us/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://electromatic.us/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://electromatic.us/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://electromatic.us/apple-icon-180x180.png">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" type="image/png" sizes="192x192"  href="https://electromatic.us/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://electromatic.us/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://electromatic.us/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://electromatic.us/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="description" itemprop="about" content="">
+        <meta name="keywords" itemprop="keywords" content="electromatic, Tom Burdick, electronics, firmware, zephyr">
+        <meta itemprop="headline" content="Electromatic.us"/>
+
+        
+
+        
+            <meta itemprop="copyrightYear" content="2025" />
+        
+
+        <!--  Social Media -->
+        <meta property="og:title" content="Electromatic.us Rust for i.MX RT ">
+        <meta property="og:description" content=" Safer, faster, better, stronger ">
+        <meta property="og:image" content="">
+        <meta property="og:url" content="https:&#x2F;&#x2F;electromatic.us&#x2F;imxrt-rs&#x2F;">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:site_name" content="">
+        <meta name="twitter:image:alt" content="Rust for i.MX RT">
+
+
+        
+
+        
+    
+
+    
+
+    
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Source+Code+Pro">
+        <link rel="stylesheet" href="/site.css">
+    
+</head>
+<body>
+    
+    <div 
+     itemscope itemtype="http://schema.org/Organization">
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <a class="title" href="https:&#x2F;&#x2F;electromatic.us">
+                
+                    
+                    
+                        <h1 >Electromatic</h1>
+                    
+                
+            </a>
+        </div>
+    </header>
+    <div class="container padding-header">
+        
+<article itemscope itemtype="http://schema.org/BlogPosting" class="post post-page">
+    
+        
+    
+    <header>
+        
+            <a  class="category" href="https://electromatic.us/categories/rust/">
+                Rust
+            </a>
+        
+        <h1 class="title" itemprop="headline">Rust for i.MX RT</h1>
+        <div class="extra">
+            
+                Tags:
+                
+                    <a href="https://electromatic.us/tags/imxrt-rs/">imxrt-rs</a>
+                    
+                        
+                            
+                                ,
+                            
+                        
+                    
+                
+                    <a href="https://electromatic.us/tags/rust/">rust</a>
+                    
+                        
+                            
+                                ,
+                            
+                        
+                    
+                
+                    <a href="https://electromatic.us/tags/embedded/">embedded</a>
+                    
+                        
+                            
+                                and
+                            
+                        
+                    
+                
+                    <a href="https://electromatic.us/tags/nxp/">nxp</a>
+                    
+                        
+                    
+                
+            
+
+            
+        </div>
+    </header>
+    <div itemprop="articleBody" class="body">
+      <h2 id="why-rust">Why Rust</h2>
+<p>There's dozens of reasons to get Rust on this scorching fast microcontroller,
+not least of which is development speed. Nothing kills development speed on
+a microcontroller faster than hitting some dreaded hard to find memory or
+state issues.
+Stack overflows and corruption? No thank you, slows me down. Interrupt
+in the middle of memory critical mutations got you down? Yes, yes they do.
+Unpredicatable timing of interrupt handlers cause your grey matter to melt?
+Most definitely. Peripheral configured but not working? Perhaps I need to add
+a sleep somewhere, it seems to work sometimes, but not others. Always when
+the debugger is looking at it. A heisen bug.</p>
+<p>The things that got me excited about Rust on a microcontroller are the same
+things that drew me to it in the first place. Saving me incalculable debugging
+time by pushing error handling to compile time checks.</p>
+<h2 id="worst-possible-bug-timing">Worst possible Bug Timing</h2>
+<p>A quick detour on when software tends to fail, at least for me.</p>
+<p>Software fails when you need it to work most, every time.</p>
+<p>Today is a fantastic example of that. The stock market roared 5% higher than
+the previous close on February 28th, which followed with February 29th. Which
+meant this year was in fact a leap year.</p>
+<p>Robinhood, a stock trading app I myself use occasionally, failed to work today
+because it failed to account for a leap year. Wonderful timing! This isn't
+a memory safety issue to be sure. It is however a great example of software
+failing when you need it most. It isn't my first experience or last experience.</p>
+<p>It almost seems like a rule in fact. Software fails when you need it most.</p>
+<p>Pulled over and looking for your insurance app on your phone to get your
+insurance id? That's the time when the app will inevitably cause your phone to
+lockup, meaning you might be locked up.</p>
+<p>Streaming a live feed of the world cup, there's the bullet to the goal and...
+oh no, there's the loading spinner. Of course that's when it shows up.</p>
+<p>About to present your prototype to some eager new investors when you get a
+never ending spinner? Yep, its that time again, worst time to fail.</p>
+<p>You could argue this is a form of murphy's law, I'd argue its murphy's law
+applied to software. Not only do things go wrong, they go wrong at the <em>worst
+possible time</em>.</p>
+<p>Life events can seemingly coincide like that at times too.</p>
+<h2 id="pushing-the-errors-to-the-compiler">Pushing the errors to the compiler</h2>
+<p>Lets just quickly checklist the ways in which Rust and its embedded ecosystem
+attempts to push errors to compile time.</p>
+<ul>
+<li>Type states with transition functions ensuring going from one state to another.
+https://rust-embedded.github.io/book/static-guarantees/typestate-programming.html</li>
+<li>Using memory safety to avoid multiple mutable references avoids data corruption.
+https://rust-embedded.github.io/book/concurrency/index.html</li>
+<li>Worst case execution time analyzable code with pre-emption and no need for
+stack management, avoiding a whole slew of common embedded problems.
+https://rtfm.rs/0.5/book/en/</li>
+</ul>
+<p>None of these are new and the rust embedded group has great docs covering it all.</p>
+<p>It made sense reading all of the above, tinkering on a well supported
+stm32f446 and wondering why all of this wasn't well supported on this beastly
+microcontroller for NXP, it was clear, it needed to happen while the iron is
+hot and the TCP, USB, and audio stacks are coming.</p>
+<h2 id="end-goal-fuzzy-but-fun">End Goal, Fuzzy, But Fun</h2>
+<p>My end goal is something like a i.mx rt running rust to be able to
+read from the camera, interpret the sequence of images into a midi controller
+note/chord and generate a fun waveform with the display showing something fun.</p>
+<p>I think this would be close to fully excercising the capabilities of this chip
+in a very fun way. But first it needs to run stuff. So it begins with the help
+of others who have already started to pave the way such as Ian McIntyre
+who initially ported things to the teensy 4.</p>
+<p>https://github.com/imxrt-rs</p>
+
+    </div>
+</article>
+
+
+        
+
+    </div>
+</body>
+</html>
