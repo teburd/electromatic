@@ -1,7 +1,6 @@
 base_url = "https://electromatic.us"
 title = "Electromatic.us"
 compile_sass = true
-highlight_code = true
 build_search_index = true
 theme = "electromatic"
 
@@ -10,6 +9,9 @@ taxonomies = [
     {name = "categories", rss = true},
     {name = "tags", rss = true},
 ]
+
+[markdown]
+highlight_code = true
 
 [extra]
 
@@ -28,7 +30,7 @@ label_minutes="Minutes"
 og_image="" # Image that will appear on social media
 og_alt_image="" # Alt for og_image
 og_site_name="" # Site Name for Open Graphic
-keywords="electromitic, Tom Burdick, electronics, firmware, zephyr" # Keywords for SEO
+keywords="electromatic, Tom Burdick, electronics, firmware, zephyr" # Keywords for SEO
 
 #educational_use="knowledge share" # OPTIONAL
 copyright_year="2019" # OPTIONAL
@@ -39,6 +41,6 @@ copyright_year="2019" # OPTIONAL
 ## Sidebar automatic links
 sidebar = [
     {name = "Social", urls=[
-        {name="Github", url="https://github.com/bfrog"},
+        {name="Github", url="https://github.com/teburd"},
     ]},
 ]
